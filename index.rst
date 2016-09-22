@@ -7,7 +7,6 @@ Documentación de gvSIG (ES)
 ===================================================
 
 .. toctree::
-   :hidden:
    :glob:
 
    scripting_devel_guide/2.3/*
@@ -28,5 +27,5 @@ gvSIG 2.2
 * `Manual de usuario`_
 * `Guia de inicio rápido para desarrolladores`_
 
-.. _Manual de usuario: user_manual/2.3/index.html
+.. _Manual de usuario: user_manual/2.2/index.html
 .. _Guia de inicio rápido para desarrolladores: developers_quick_start/2.2/index.html
