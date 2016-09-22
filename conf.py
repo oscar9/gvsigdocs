@@ -33,8 +33,6 @@ import sys, os
 sys.path.append(os.path.abspath('exts'))
 
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosectionlabel'
 ]
 
 #javadoc = {'javadoc': ('http://example.com/%s.html', 'prefix')}
