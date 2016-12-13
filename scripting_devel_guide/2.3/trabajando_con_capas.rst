@@ -66,7 +66,7 @@ Que darán como resultado el nombre y ruta de la capa, similar a::
 	Nombre:  tmpshp-57afa1381035
 	Ruta:  C:\Users\Oscar\AppData\Local\Temp\tmp-andami\tmpshp-57afa1381035.shp
 	
-Si necesitas crear varias capas y necesitas poder diferenciarlas, por ejemplo, al enlazar una serie de operaciones, podemos establecer el parámetro ``prefixname`` el cual modificará la primera parte del nombre, pero seguirá creando todo el resto de ruta temporal y asegurandonos que será un nombre único::
+Si necesitas crear varias capas y necesitas poder diferenciarlas, por ejemplo, al enlazar una serie de operaciones, podemos establecer el parámetro ``prefixname`` el cual modificará la primera parte del nombre, pero seguirá creando todo el resto de ruta temporal y asegurándonos que será un nombre único::
 
 
 	from gvsig import *
@@ -95,7 +95,7 @@ Por consola muestra el nombre de las capas como indicábamos::
 Modificar esquema de una capa
 +++++++++++++++++++++++++++++
 
-El siguiente script modifcará el esquema de una capa. Para ello tenemos que crear un esquema nuevo basado en el anterior de la capa mediante ``createFeatureType(layer_schema)``, realizar las modificaciones y actualizar la capa::
+El siguiente script modificará el esquema de una capa. Para ello tenemos que crear un esquema nuevo basado en el anterior de la capa mediante ``createFeatureType(layer_schema)``, realizar las modificaciones y actualizar la capa::
 
 	from gvsig import *
 	from gvsig import geom
@@ -116,7 +116,7 @@ El siguiente script modifcará el esquema de una capa. Para ello tenemos que cre
 Operaciones con entidades
 +++++++++++++++++++++++++
 
-Una vez creada la capa nueva o accedido a una de ellas con ``currentLayer()`` o ``view.getLayer("Name")``, podemos acceder a sus entidades mediante el método ``.features()``, tal y como explicamos en la guia de Acceso a datos.
+Una vez creada la capa nueva o accedido a una de ellas con ``currentLayer()`` o ``view.getLayer("Name")``, podemos acceder a sus entidades mediante el método ``.features()``, tal y como explicamos en la guía de Acceso a datos.
 
 Lo siguiente que haremos es añadir datos a esta capa vectorial. Para ello ponemos la capa en modo de edición mediante ``layer.edit()`` y agregamos las entidades con ``layer.append(args)``::
 
@@ -213,7 +213,7 @@ Si al final del script anterior añadimos las siguientes líneas, veremos un eje
 		layer.commit()
 
 	
-Para modificar los valores de lsa entidades que contiene nuestra capa::
+Para modificar los valores de las entidades que contiene nuestra capa::
 
 		layer.edit()
 
@@ -226,7 +226,7 @@ Para modificar los valores de lsa entidades que contiene nuestra capa::
 		layer.commit()
 		
 
-Se puede realizar copias de features y poder modificarlos después en su capa original.
+Se puede realizar copias de entidades (features) y poder modificarlas después en su capa original.
 
 Ejemplo: Extraemos ciertas entidades de una capa que contiene un Campo1 de tipo Long. Estas entidades las copiamos a una lista. Después, modificamos estas entidades y las volvemos a modificar sobre la capa inicial::
 

@@ -13,7 +13,7 @@ Una forma de usar estos listeners es utilizando la herencia, creando una clase d
 ViewPortListener
 ----------------
 
-En el siguiente ejemplo vemos como creamos una clase nueva ``MonitorSuma`` que herada de ``FormPanel`` y :javadoc:`ViewPortListener <ViewPortListener>`. Lanzamos la aplicación en las líneas::
+En el siguiente ejemplo vemos como creamos una clase nueva ``MonitorSuma`` que hereda de ``FormPanel`` y :javadoc:`ViewPortListener <ViewPortListener>`. Lanzamos la aplicación en las líneas::
 
 			
 	mapContext = currentView().getMapContext()
@@ -96,7 +96,7 @@ Descarga del script: :download:`Monitor <ejemplos/gvSIG-desktop-2.3.0-monitor-1.
 PointListener
 -------------
 
-Otro ejemplo similar al anterior es este en el que capturamos los eventos lanzados desde el :javadoc:`PointListener <PointListener>`, que hace referencia  a clicks que hacemos sobre la Vista activa. También tendremos que apoyarnos en :javadoc:`PointBehavior <PointBehavior>` para poder añadir este comportamiento al *mapControl*.
+Otro ejemplo similar al anterior es este en el que capturamos los eventos lanzados desde el :javadoc:`PointListener <PointListener>`, que hace referencia a clicks que hacemos sobre la Vista activa. También tendremos que apoyarnos en :javadoc:`PointBehavior <PointBehavior>` para poder añadir este comportamiento al *mapControl*.
 
 En el siguiente ejemplo, capturaremos las coordenadas del mapa en el punto que hacemos click o doble click con el ratón:
 
@@ -104,7 +104,6 @@ En el siguiente ejemplo, capturaremos las coordenadas del mapa en el punto que h
    :align:   center
    
 Código::
-
 
     from gvsig import *
 

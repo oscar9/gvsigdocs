@@ -81,7 +81,7 @@ Una geometría es un objeto que contiene información geométrica. Estas geometr
 
 Para el Módulo de Scripting hemos creado la librería gvsig.geom que nos ayudará para crear rápidamente las geometrías que necesitemos. Para algunas operaciones más complicadas tendremos que usar la API de gvSIG.
 
-Para establecer estos tipos y subtipos lo haremos utilizando las constantes que se incluyen en la libreria.
+Para establecer estos tipos y subtipos lo haremos utilizando las constantes que se incluyen en la librería.
 
 Constantes que aparecen en la librería ``gvsig.geom`` para la creación de geometrías::
 
@@ -749,7 +749,7 @@ Creando un polígono, aplicarle un área de influencia, añadirle un anillo inte
 .. figure::  images/geom_poligono_hueco.png
    :align:   center
    
-Ejemplo para extraer todos los vertices de una capa de polígonos en forma de multipuntos::
+Ejemplo para extraer todos los vértices de una capa de polígonos en forma de multipuntos::
 
     # encoding: utf-8
 
@@ -779,7 +779,7 @@ Resultado:
 .. figure::  images/geom_vertices.png
    :align:   center
    
-Con una pequeña modificación, podemos hacer que añada un punto por cada vertice, recorriendo las geometrías de multipunto y extrayendo uno a uno sus puntos::
+Con una pequeña modificación, podemos hacer que añada un punto por cada vértice, recorriendo las geometrías de multipunto y extrayendo uno a uno sus puntos::
 
     # encoding: utf-8
 

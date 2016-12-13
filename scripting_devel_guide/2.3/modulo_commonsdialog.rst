@@ -90,7 +90,7 @@ Constantes que aparecen en la librería y usaremos en diferentes funciones::
 	*Confirmdialog optionType Options*
 	YES_NO = 0
 	YES_NO_CANCEL = 1
-	ACEPT_CANCEL = 2
+	ACCEPT_CANCEL = 2
 
 	YES = 0
 	NO = 1
@@ -108,7 +108,7 @@ Constantes que aparecen en la librería y usaremos en diferentes funciones::
 Uso
 ---
 
-En el módulo de commonsdialog  gestiona las ventanas emergentes que aparecen en gvSIG. Por ejemplo, si queremos mostrar un avisa al usuario usaremos :py:func:`msgbox`: o si queremos preguntar por algún valor al usuario que ejecute el script, podemos usar la función :py:func:`inputbox` la cual devolverá el texto que escriba el usuario en la caja de texto que aparecerá en pantalla.
+En el módulo de commonsdialog gestiona las ventanas emergentes que aparecen en gvSIG. Por ejemplo, si queremos mostrar un avisa al usuario usaremos :py:func:`msgbox`: o si queremos preguntar por algún valor al usuario que ejecute el script, podemos usar la función :py:func:`inputbox` la cual devolverá el texto que escriba el usuario en la caja de texto que aparecerá en pantalla.
 
 Para importar la librería lo haremos mediante::
 
@@ -136,7 +136,7 @@ Por ejemplo:
 
 		commonsdialog.msgbox("Bienvenido a gvSig","Welcome", commonsdialog.IDEA)
 
-El tipo de mensaje lo establecemos en el parámetro meesageType como podemos ver en :py:func:`msgbox` y estos tipos se encuentran almacenados en constantes dentro del módulo commonsdialog.
+El tipo de mensaje lo establecemos en el parámetro ``messageType`` como podemos ver en :py:func:`msgbox` y estos tipos se encuentran almacenados en constantes dentro del módulo ``commonsdialog``.
 
 O depende de cómo lo importemos.
 
@@ -175,10 +175,10 @@ QUESTION:
    :align:   center
    
    
-Tipos de dialogos
+Tipos de diálogos
 -----------------
 
-Diferentes tipos de dialogos es uno::
+Diferentes tipos de diálogos::
 
 	from gvsig import *
 	from gvsig import commonsdialog

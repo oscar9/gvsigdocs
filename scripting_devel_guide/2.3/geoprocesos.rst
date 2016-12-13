@@ -6,7 +6,7 @@ Geoprocesos
 Librería Toolbox
 ----------------
 
-Esta clase nos ayudará a generar nuestros geoprocesos para insertarlos en la Caja de Herramientas y permitiendonos algunos extras que iremos explicando.
+Esta clase nos ayudará a generar nuestros geoprocesos para insertarlos en la Caja de Herramientas y permitiéndonos algunos extras que iremos explicando.
 
 La librería Toolbox se encuentra dentro de ``gvsig.libs.toolbox`` y la podemos importar de forma similar::
 
@@ -58,7 +58,7 @@ Ejemplo 1 - XYShift, desplazamiento de una capa de puntos::
 	  
 	  def defineCharacteristics(self):
 		"""
-	En esta operacion debemos definir los parametros de netrada y salida que va a precisar nuetro proceso.
+	En esta operacion debemos definir los parametros de entrada y salida que va a precisar nuestro proceso.
 		"""
 		# Fijamos el nombre con el que se va a mostrar nuestro proceso
 		self.setName("Prueba desplazamiento en X e Y")
@@ -78,7 +78,7 @@ Ejemplo 1 - XYShift, desplazamiento de una capa de puntos::
 
 	  def processAlgorithm(self):
 		"""
-	Esta operacion es la encargada de realizar nuetro proceso.
+	Esta operacion es la encargada de realizar nuestro proceso.
 		"""
 		features=None
 	   
@@ -202,7 +202,7 @@ Ejemplo 2 - GridPol, malla uniforme de puntos dentro de polígonos en una capa::
             self.addOutputVectorLayer("RESULT_POINT", "GirdPol_point", SHAPE_TYPE_POINT)
 
     def processAlgorithm(self):
-            """ Esta operacion es la encargada de realizar nuetro proceso. """
+            """ Esta operacion es la encargada de realizar nuestro proceso. """
             features=None
 
             try:
@@ -339,7 +339,7 @@ Y tendrá una barra de estado mostrando el progreso durante su ejecución, la cu
 Lanzador de geoprocesos usando gvpy
 -----------------------------------
 
-Una vez registrado en la Toolbox el geoproceso anterior, podemos lanzanlo desde Scripting con la librería gvpy::
+Una vez registrado en la Toolbox el geoproceso anterior, podemos lanzarlo desde Scripting con la librería gvpy::
 
 	from gvsig import *
 	from gvsig.libs import gvpy
@@ -360,8 +360,6 @@ También puedes lanzar otros geoprocesos, por ejemplo, podemos crear dos capas a
 		
 Lanzando el ejemplo 2 anteriormente explicado sobre malla de puntos sobre polígonos::
 
-    # encoding: utf-8
-
     from gvsig import *
     from gvsig.libs import gvpy
 
@@ -369,12 +367,22 @@ Lanzando el ejemplo 2 anteriormente explicado sobre malla de puntos sobre políg
 
             x = gvpy.runalg("GridPol", "pols_example", "2",ADDLAYER=True, NAME="Grid dentro poligono")
 
+Un ejemplo lanzando la herramienta de Calculadora de mapas para ficheros raster::
+
+   from gvsig import *
+   from gvsig.libs import gvpy
+
+   def main(*args):
+
+       r1 = currentLayer() # getting raster from the view with name "rasterfile"::
+       g2 = gvpy.runalg("gridcalculator", [r1], "rasterfile Band 2 * rasterfile Band 1")
+
 Puedes encontrar más información en la :ref:`documentación de gvpy <label-gvpy>`
 
 Scripts en el Modelizador
 -------------------------
 
-Al seguir el ejemplo anterior, estos scripts o geoprocesos pueden ser insetados en la toolbox, y por tanto, hacer uso de ellos en el Modelizador (Model Builder).
+Al seguir el ejemplo anterior, estos scripts o geoprocesos pueden ser insertados en la toolbox, y por tanto, hacer uso de ellos en el Modelizador (Model Builder).
 
 Una vez insertado podemos crear un modelo similar al siguiente:
 

@@ -16,6 +16,28 @@ Para seguir esta guía tan solo necesitas tener instalado la versión de gvSIG 2
 La última versión disponible de gvSIG 2 que podrás encontrar en:
 http://www.gvsig.com/es/productos/gvsig-desktop/descargas
 
+También será necesario tener instalado el paquete de **Scripting Composer Tools**. Este paquete es un conjunto de herramientas desarrollado para facilitar la tarea del desarrollador. Incluye herramientas de autocompletado, code navigator, la herramienta de interfaces visuales Abeille, entre otros. Se podrán instalar directamente desde el **Administrador de Complementos**.
+
+Iremos a :menuselection:`Herramientas --> Administrador de Complementos` y seleccionaremos ``Instalación estándar``.
+
+.. figure::  images/inst_1.png
+   :align:   center
+
+Haremos una busqueda de las **Composer Tools**:
+
+.. figure::  images/inst_2.png
+   :align:   center
+
+Cuando la instalación a finalizado, abriendo el :menuselection:`Herramientas --> Scripting --> Editor de Scripts`, podremos comprobar que aparece la carpeta ``ScriptingComposerTools`` y que se ha instalado correctamente.
+
+.. figure::  images/inst_3.png
+   :align:   center
+
+Es necesario reiniciar gvSIG para su uso. Si volvemos a abrir el Editor de Scripts, veremos que aparecen una serie de botones extra en la barra de Herramientas:
+
+.. figure::  images/inst_4.png
+   :align:   center
+
 Qué nos permite
 ----------------
 
@@ -23,7 +45,7 @@ Este módulo de programación nos dará la oportunidad programar nuestras propia
 
 Los scripts los podremos modificar, adaptar, intercambiar y desarrollar de una manera sencilla, y lo más importante, rápida.
 
-Una de las ventajas es que dada la facilidad del lengauaje Python, no será necesario tener conocimientos extensos de programación ni de cómo funciona al completo la arquitectura de gvSIG para poder desarrollar la herramienta que necesitemos.
+Una de las ventajas es que dada la facilidad del lenguaje Python, no será necesario tener conocimientos extensos de programación ni de cómo funciona al completo la arquitectura de gvSIG para poder desarrollar la herramienta que necesitemos.
 
 Las posibilidades son infinitas, nos permitirá:
 - Automatizar tareas
@@ -87,11 +109,11 @@ Otra función interesante es que nos ofrecerá una ayuda de los comandos que est
 Librerías de gvSIG para Scripting
 ---------------------------------
 
-Hemos creado una librería escrita en Jython denominada gvsig. Su función es inyectar métodos extra en estas clases de Java ya existentes en la API de gvSIG y ampliar mediante nuevas funciones la potencia y facilidad de uso de este módulo.
+Hemos creado una librería escrita en Jython denominada ``gvsig``. Su función es inyectar métodos extra en estas clases de Java ya existentes en la API de gvSIG y ampliar mediante nuevas funciones la potencia y facilidad de uso de este módulo.
 
 Su objetivo es el disminuir el número de líneas requeridas para realizar ciertas operaciones y hacer accesible la API de gvSIG de una manera más sencilla desde Jython.
 
-Las librerías Java de las que se compone gvSIG están totalmente accesibles desde nuestros scripts en Jython, siendo posible sin ninguna restricción en el acceso a ellas y en la creación de extensiones de la misma forma que si las hicieramos directamente en Java.
+Las librerías Java de las que se compone gvSIG están totalmente accesibles desde nuestros scripts en Jython, siendo posible sin ninguna restricción en el acceso a ellas y en la creación de extensiones de la misma forma que si las hiciéramos directamente en Java.
 
 Organización de la librería gvsig
 ---------------------------------
@@ -114,15 +136,15 @@ Es recomendable importar tan solo las librerías necesarias para la ejecución d
 
 Si nuestro script contiene otras librerías propias que también hemos programado, al realizar su importación podemos forzar la recarga de estas librerías (sino los cambios no se verán reflejados) utilizando la función `reload()`. La forma correcta de hacerlo sería::
 
-	import lib
-	reload(lib)
+    import lib
+    reload(lib)
 
 Creación de un script
 ---------------------
 
 .. |new| image:: images/icon-new.png
 
-Para crear un script nuevo, trajaremos en el **Scripting Composer** presiona el botón de Nuevo |new| situado arriba a la izquierda, o en :menuselection:`Archivo --> Nuevo` se nos abrirá una pantalla sobre el tipo de script a crear.
+Para crear un script nuevo, trabajaremos en el **Scripting Composer** presiona el botón de Nuevo |new| situado arriba a la izquierda, o en :menuselection:`Archivo --> Nuevo` se nos abrirá una pantalla sobre el tipo de script a crear.
 
 .. figure::  images/nuevo_script.png
    :align:   center
@@ -153,22 +175,22 @@ Los scripts creados se almacenan en la carpeta de gvSIG ``C:\Users\*\gvSIG\plugi
 Ahora nos disponemos a escribir nuestro primer script. El ejemplo que nos viene por defecto es totalmente válido:
 
 .. code-block:: python
-	:linenos:
-	:emphasize-lines: 5
-	:caption: primer_script.py
-	:name: primer-script
-	
-	# encoding: utf-8
+    :linenos:
+    :emphasize-lines: 5
+    :caption: primer_script.py
+    :name: primer-script
 
-	import gvsig
+    # encoding: utf-8
 
-	def main(*args):
+    import gvsig
 
-		#Remove this lines and add here your code
+    def main(*args):
 
-		print "hola mundo"
-		pass
-	   
+        #Remove this lines and add here your code
+
+        print "hola mundo"
+        pass
+
 En primer lugar, realiza una importación de la librería que vamos a utilizar, la librería de scripting ``gvsig``, y luego define dentro de la función principal main(), el comando print que hará salir nuestro valor por consola.
 
 .. figure::  images/scripting_composer_2.png
@@ -178,7 +200,7 @@ En Scripting en gvSIG, la función que se va a ejecutar por defecto **será siem
 
 .. note::
 
-	Todos nuestros scripts deben de contener la función main() para su correcta ejecución. No será obligatorio si van a ser usados como librerías.
+   Todos nuestros scripts deben de contener la función main() para su correcta ejecución. No será obligatorio si van a ser usados como librerías.
 
 .. |saveandexecute| image:: images/icon-saveandexecute.png
 .. |save| image:: images/icon-save.png
@@ -202,9 +224,9 @@ Si queremos comprobar nuestros scripts en el disco duro estarán en la carpeta:
 En esta carpeta podemos copiar o pegar los scripts, fijándonos en copiar ambos archivos ``.py`` y ``.inf``.
 
 .. note::
-	
-	Lo recomendable es generar los scripts dentro de su propia carpeta. Esto nos permitirá usarlos como módulos dandonos varias opciones: usar ficheros autorun.py (autoejecutable al inicio de gvSIG), fichero __init__.py (nos permitirá trabajar como si fuera un módulo permitiendonos importar librerías que estén en la misma carpeta) y la creación de paquetes de Scripts
-	
+
+    Lo recomendable es generar los scripts dentro de su propia carpeta. Esto nos permitirá usarlos como módulos dándonos varias opciones: usar ficheros autorun.py (autoejecutable al inicio de gvSIG), fichero __init__.py (nos permitirá trabajar como si fuera un módulo permitiéndonos importar librerías que estén en la misma carpeta) y la creación de paquetes de Scripts
+
 Generando paquetes de scripts
 -----------------------------
 

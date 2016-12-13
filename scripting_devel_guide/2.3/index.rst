@@ -6,16 +6,19 @@
 Documentación de Scripting en gvSIG 2.3
 ===================================================
 
+Tabla de contenidos
+-------------------
+
 .. toctree::
    :maxdepth: 2
    :numbered:
 
    introduccion.rst
    modelo_de_objetos_simplificado.rst
-   modelo_de_clases_simpleficado.rst
+   modelo_de_clases_simplificado.rst
    modulo_commonsdialog.rst
    cargando_capas.rst
-   creando_y_abriendo_capas.rst
+   otras_fuentes_datos.rst
    acceso_a_objetos.rst
    trabajando_con_esquemas.rst
    trabajando_con_capas.rst
@@ -29,8 +32,8 @@ Documentación de Scripting en gvSIG 2.3
    rscript.rst
    
 Enlaces
-=======
-.. _javadocs de gvSIG: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javahtml/
+-------
+.. _javadocs de gvSIG: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/
 .. _Blog de gvSIG: https://blog.gvsig.org/
 .. _gvSIG.com: http://www.gvsig.com/es/
 .. _Jython book: http://www.jython.org/jythonbook/en/1.0/
@@ -41,7 +44,7 @@ Enlaces
 * `Jython book`_
 
 Índices
-==================
+-------
 
 * :ref:`genindex`
 * :ref:`search`

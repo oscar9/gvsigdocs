@@ -8,7 +8,7 @@ del proyecto.
 ..  tip::
     Sería recomendable que leyese la documentación sobre 
     Maven que existe en la *guía de desarrollo* de gvSIG 2.0, 
-    en la `sección "Maven" `_
+    en la `sección "Maven"`_
     en donde encontrará tanto una breve descripción como 
     enlaces a recursos de utilidad relacionados con Maven.
 
@@ -24,3 +24,4 @@ se van a realizar desarrollos sobre gvSIG.
 
 Desde el proyecto se viene usando tanto *Netbeans* como *Eclipse*.
 
+.. _sección "Maven": http://docs.gvsig.org/web/reference_catalog/lookupObject?uuid=b86adfa812c5996040df3badd7343c86

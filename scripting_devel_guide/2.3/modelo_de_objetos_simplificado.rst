@@ -1,5 +1,6 @@
 Modelo de objetos simplificado
 ==============================
+.. |mo1| image:: images/modelo_de_objetos_simplificado.png
 
 Aquí podemos ver un esquema con los componentes de uso más común desde scripting, la relación entre ellos y cómo podemos acceder a ellos desde nuestro script. Además podemos navegar a la información de la clase Java pulsando sobre el componente.
 	  
@@ -9,7 +10,7 @@ Aquí podemos ver un esquema con los componentes de uso más común desde script
 
 .. raw:: html
 
-    <img class="mapping" style="max-width: none" src="images/Modelo%20de%20objetos%20simplificado.png" usemap="#map" height="1143" width="1022" border="0">
+    <img class="mapping" style="max-width: none" src="../../../_images/modelo_de_objetos_simplificado.png" usemap="#map" height="1143" width="1022" border="0">
     <map name="map">
       <!-- #$-:Image map file created by GIMP Image Map plug-in -->
       <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
@@ -51,11 +52,11 @@ En el diagrama anterior podemos ver:
 .. figure::  images/interpretar-funcion.png
    :align:   center
    
-Lo interpretaremos como que disponemos de una *funcion*, ``currentProject()``, que podemos ejecutar desde nuestro script para obtener el objerto con el que está relacionada, en este caso el *project*. Para los elementos etiquetados como *función* precisaremos haber importado el modulo ``gvsig``::
+Lo interpretaremos como que disponemos de una **función**, ``currentProject()``, que podemos ejecutar desde nuestro script para obtener el objeto con el que está relacionada, en este caso el **project**. Para los elementos etiquetados como **función** precisaremos haber importado el modulo ``gvsig``::
 
     from gvsig import *
 
-- **Cajas en azul**, nos indica que se trata de una entidad abstracta. Nunca encontraremos objetos de este tipo. Hacen referencia de forma generica a un grupo de objetos con caracteristicas comunes; por ejemplo, tendremos un :javadoc:`Document <Document>` que agrupa las caracteristicas comunes de :javadoc:`ViewDocument <ViewDocument>`, :javadoc:`TableDocument <TableDocument>` o :javadoc:`LayoutDocument <LayoutDocument>`. En el diagrama podemos encontrarnos, por ejemplo:
+- **Cajas en azul**, nos indica que se trata de una entidad abstracta. Nunca encontraremos objetos de este tipo. Hacen referencia de forma genérica a un grupo de objetos con características comunes; por ejemplo, tendremos un :javadoc:`Document <Document>` que agrupa las características comunes de :javadoc:`ViewDocument <ViewDocument>`, :javadoc:`TableDocument <TableDocument>` o :javadoc:`LayoutDocument <LayoutDocument>`. En el diagrama podemos encontrarnos, por ejemplo:
 
 .. figure::  images/interpretar-herencia.png
    :align:   center

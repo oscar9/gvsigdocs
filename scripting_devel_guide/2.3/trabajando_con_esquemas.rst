@@ -19,7 +19,7 @@ Creando esquemas
 	
 La interfaz :javadoc:`DataTypes <DataTypes>` especifica un conjunto de constantes indicando los tipos de datos soportados por DAL.
 
-Vamos a ver como crear un esquema con dos campos y asignale este esquema a una nueva tabla::
+Vamos a ver como crear un esquema con dos campos y asignarle este esquema a una nueva tabla::
 
 	from gvsig import *
 	from gvsig.geom import *

@@ -4,7 +4,7 @@ Acceso a objectos en gvSIG
 Funciones current
 -----------------
 
-Son aquellas funciones que nos ayudan a acceder de una forma rápida a partes de gvSIG que se estén en ejecución o cargadas en ese momento. Tales pueden ser como la Vista que tenemos abierta o la capa que tenemos selecciona en esa Vista.
+Son aquellas funciones que nos ayudan a acceder de una forma rápida a partes de gvSIG que estén en ejecución o cargadas en ese momento. Tales pueden ser como la Vista que tenemos abierta o la capa que tenemos selecciona en esa Vista.
 
 Estas funciones se encuentran dentro de la librería ``gvsig`` y son:
 
@@ -234,14 +234,14 @@ Si tenemos una Vista con tres capas, el resultado por consola será similar al s
 		Capa:  tmpshp-57ae45f712b6  Tipo:  MultiCurve:2D
 		Capa:  tmpshp-57ae45fe1112  Tipo:  MultiSurface:3DM
 	
-Si quieres acceder a capas ya existentes en la Vista podrías hacerlo mediante ``currentView().getLayer("Nombre")``, si la tenemoms seleccionada en la tabla de contenidos (TOC) mediante :py:func:`currentLayer()`
+Si quieres acceder a capas ya existentes en la Vista podrías hacerlo mediante ``currentView().getLayer("Nombre")``, si la tenemos seleccionada en la tabla de contenidos (TOC) mediante :py:func:`currentLayer()`
 	
 Otros métodos que podemos usar sobre una capa añadida son los de ``.setVisible(True)`` para modificar su visibilidad en la Vista, o `` layer.setActive(True)`` para modificar su selección dentro de la Tabla de Contenidos.
 
 Grupo de entidades: FeatureSet
 ------------------------------
 
-Para obtener las entidades de una capa o tabla, podemos hacer una petición mediante ``layer.features()``, la cual hace una petición al store de la capa, y nos devuelve un featureSet ( :javadoc:`DefaultFeatureSet <DefaultFeatureSet>` ) con el filtrado o orden que le asignemos. Este featureSet nos permite iterrar sobre las entidades de la capa.
+Para obtener las entidades de una capa o tabla, podemos hacer una petición mediante ``layer.features()``, la cual hace una petición al **store** de la capa, y nos devuelve un featureSet ( :javadoc:`DefaultFeatureSet <DefaultFeatureSet>` ) con el filtrado o orden que le asignemos. Este featureSet nos permite iterar sobre las entidades de la capa.
 
 Después, por ejemplo, podemos acceder a estas entidades y a sus valores mediante el método ``getValues()`` sobre cada ``feature``, el cual devuelve un diccionario que podemos imprimir::
 
@@ -268,7 +268,7 @@ Por consola el resultado en este caso sería::
 	{u'NAME': u'Feature3', u'ID': 7L, u'GEOMETRY': POINT (2.0 7.0)}
 
 
-Podemos hacer diferentes filtrados que devolverian diferentes featureSet. El parámetro ``expresion`` pide un String que haga de filtro, el parámtro ``sortBy`` el campo sobre el que se ordenará el featureSet, el parámetro ``asc`` ordenará en orden ascendente o descendente según el campo seleccionado.
+Podemos hacer diferentes filtrados que devolverían diferentes featureSet. El parámetro ``expresion`` pide un String que haga de filtro, el parámetro ``sortBy`` el campo sobre el que se ordenará el featureSet, el parámetro ``asc`` ordenará en orden ascendente o descendente según el campo seleccionado.
 
 Unos ejemplos de filtrados y sus resultados::
 
@@ -291,7 +291,6 @@ Unos ejemplos de filtrados y sus resultados::
 Otras opciones más avanzadas usando la API de gvSIG::
 
 	from gvsig import *
-	import layer_append_features
 
 	def main(*args):
 
@@ -398,7 +397,7 @@ Por ejemplo, añadiremos a la selección ciertas entidades que cumplan un criter
 				# Agregamos entidades a la seleccion
 				selection.select(feature)
 
-Si quisieramos eleminar entidades de la selección, podríamos usar el método ``.deselect(feature)``
+Si quisiéramos eliminar entidades de la selección, podríamos usar el método ``.deselect(feature)``
 
 Por otra parte, también podríamos crear una selección o varias desde Scripting::
 

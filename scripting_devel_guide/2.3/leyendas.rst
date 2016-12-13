@@ -85,7 +85,7 @@ Generando símbolos para capas vectoriales::
 Capa de Graphics Layer
 ----------------------
 
-Ejemplo para crear una capa de graphicslayer, esta capa se situa por encima del resto en nuestra Vista::
+Ejemplo para crear una capa de graphicslayer, esta capa se sitúa por encima del resto en nuestra Vista::
 
     # encoding: utf-8
 

@@ -3,7 +3,7 @@ Usando librerías externas
 
 GDAL
 ----
-Hemos incluido una de las aplicaciones más comúnes de uso en GDAL que se denomina ogr2ogr. Para usarla desde un script podemos usar las siguientes líneas, modificando las rutas por las de nuestros datos. El resultado es una transformación de un fichero geojson a un shape::
+Hemos incluido una de las aplicaciones más comunes de uso en GDAL que se denomina ogr2ogr. Para usarla desde un script podemos usar las siguientes líneas, modificando las rutas por las de nuestros datos. El resultado es una transformación de un fichero geojson a un shape::
 
 	from gvsig import *
 
@@ -143,7 +143,7 @@ Editando ODS
 
 .. note::
 
-    Después de modificarlo hay que abrirlo y presionas control+mayusculas+f9 para recalcular las celdas
+    Después de modificarlo hay que abrirlo y presionas ``Control+Mayusculas+F9`` para recalcular las celdas
 
 Ejemplos
 ++++++++

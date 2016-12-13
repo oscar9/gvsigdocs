@@ -1,7 +1,7 @@
 Lenguaje R
 ==========
 
-Ejemplo de script en R mostrando información de una Vista::
+Ejemplo de script en R (Renjin) mostrando información de una Vista::
 
 
     import (org.gvsig.app.project.documents.view.ViewDocument)
@@ -16,5 +16,3 @@ Ejemplo de script en R mostrando información de una Vista::
         print(view$name);
 
     }
-
-    

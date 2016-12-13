@@ -8,6 +8,15 @@ gvpy: Guía de uso
 
 Los geoprocesos de gvSIG y SEXTANTE ahora están accesibles con una sola línea de código y pueden formar parte de tus scripts. Podrás ejecutarlos desde la consola de Jython o desde el Scripting Composer, ubicados ambos dentro del módulo de Scripting. Este módulo de programación solo está disponible en la nueva versión de gvSIG 2.x en adelante.
 
+.. note::
+
+        Ya que existe la posibilidad de generar geoprocesos e incorporarlos a la caja de herramientas mediante Scripting, estos geoprocesos también serán accesibles desde gvpy.
+
+Contenidos
+----------
+
+.. contents::
+
 Librería gvpy
 -------------
 
@@ -35,23 +44,24 @@ Tendrás acceso tanto a los algoritmos de geoprocesamiento de gvSIG como de SEXT
 
 En esta Caja de Herramientas podemos realizar búsquedas de algoritmos, pero también desde gvpy.
 
-Si abrimos la Consola de Jython (Herramientas-Scripting-Jython Console) y escribimos `import gvpy` ya podemos acceder a sus funcionalidades. Estos comandos también podemos utilizarlos desde el Scripting Composer desde un script nuevo.
+Si abrimos la Consola de Jython (Herramientas-Scripting-Jython Console) y escribimos `from gvsig.libs import gvpy` ya podemos acceder a sus funcionalidades. Estos comandos también podemos utilizarlos desde el Scripting Composer desde un script nuevo.
 
-Por ejemplo, si queremos buscar un algoritmos que genere vectores aleatorios podemos hacer una búsqueda del tipo::
+Por ejemplo, si queremos buscar un algoritmo que genere vectores aleatorios podemos hacer una búsqueda del tipo::
 
 	gvpy.algSearch("aleatorias")
 
 .. note::
 
-	La descripción de los algoritmos, tanto en gvSIG-Geoprocesos y SEXTANTE, se encuentra en español, así que para que funcionen las búsquedas tendrán que realizar en este idioma
+	La descripción de los algoritmos, tanto en gvSIG-Geoprocesos y SEXTANTE, dependen del idioma en el que tengamos instalado gvSIG, así que para que funcionen las búsquedas se tendrán que realizar en este idioma determinado.
 
 De los resultados que nos aparecen, podemos ver un algoritmo denominado: ``randomvector``
 
 Parámetros del algoritmo
 ------------------------
 
-Si queremos conocer más sobre el podemos escribir el mismo comando que hemos usado antes:
-`gvpy.algSearch("randomvector")`
+Si queremos conocer más sobre el algoritmo podemos escribir el mismo comando que hemos usado antes::
+
+    gvpy.algSearch("randomvector")
 
 Si la búsqueda coincide exactamente con el nombre de un algoritmo, la información que nos muestra gvpy será la información sobre ese algoritmo, su descripción y sus parámetros::
 
@@ -66,14 +76,14 @@ Si la búsqueda coincide exactamente con el nombre de un algoritmo, la informaci
 								   );
 
 
-Lo mismo, podemos hacer la búsqueda en la **caja de herramientas**. Si entramos en el algoritmo podemos ver ayuda sobre lo que hace y abajo a la izquierda aparece el nombre clave del algoritmo (si no aparece, cierra la pantalla y vuelve a darle).
+Lo mismo, podemos hacer la búsqueda en la **caja de herramientas**. Si entramos en el algoritmo podemos ver ayuda sobre lo que hace y abajo a la izquierda aparece el nombre clave del algoritmo (si no aparece, cierra la ventana y vuelve a abrir el geoproceso).
 
 Línea de código
 ---------------
 
 Ahora que **conocemos los parámetros necesarios** para ejecutar el algoritmo, los escribiremos en forma de línea de código.
 
-Hay que **escribir gvpy** delante para acceder a la función que se encuentra dentro de la librería. El atributo RESULT, siempre que se refieran a los archivos de salida (output vector, etc), no deberemos ponerlos.
+Hay que **escribir gvpy** delante para acceder a la función que se encuentra dentro de la librería. El atributo RESULT, siempre que se refieran a los archivos de salida (output vector, etc), **no deberemos ponerlos**, ya que estos están gestionados por otro parámetro PATH que explicamos más adelante.
 
 Ejemplo::
 	
@@ -145,13 +155,12 @@ Si son de tipo raster + banda se incluyen con una tupla Ej. (raster, 1)
 
 Ej. Usando multi input de rasters::
 
-	runalg("vectorizetrees", [(sRaster(0),1), (sRaster(1),1)], "capa1", "1.0", "1.0", "#")
+	runalg("vectorizetrees", [(raster1,1), (raster2,1)], "capa1", "1.0", "1.0", "#")
 
 Parámetro Point
 +++++++++++++++
 
-Se puede pasar como texto: "100.0, 150.0"
-o como geometría de gvSIG: geom.createPoint(100.0, 150.0)
+Se puede pasar como texto: "100.0, 150.0" o como geometría de gvSIG `geom.createPoint(geom.D2, 100.0, 150.0)`.
 
 Parámetros Fixed table
 ++++++++++++++++++++++
@@ -167,7 +176,7 @@ Archivos de salida
 Los archivos de salida (RESULT) son la capa o capas que generarán como resultado el ejecutar nuestro algoritmo, también salidas de tipo texto. Si no se especifica se guardarán en una carpeta temporal:
 `C:\Users\Oscar\AppData\Local\Temp\tmp-andami`
 
-Nosotros estableceremos la ruta que queremos con el comando PATH para indicar ruta y nombre. 
+Nosotros estableceremos la ruta que queremos con el comando PATH para indicar ruta y nombre. Explicación sobre PATH en el apartado de Atributos Extra.
 
 Además, **podemos capturar estas capas** para poder seguir utilizándolas en nuestro script recogiendo la salida del algoritmo::
 
@@ -225,6 +234,10 @@ Según las capas resultado que genere el algoritmo, esto lo podemos ver cuando u
 - Si solo devuelve una capa, podemos introducir la ruta como: `PATH="C://capa_01.shp"`
 - Si devuelves dos o más, las podemos introducir en forma de lista: `PATH=["C://1.shp", "C://2.shp"]`
 
+.. note::
+        
+        Si el fichero ya existe se podrucirá un error durante la ejecución del geoproceso.
+
 OUTVIEW
 +++++++
 
@@ -245,7 +258,7 @@ NAME
 
 	Anteriormente este atributo era denominado TOCNAME.
 	
-Este atributo nos permite modificar el nombre con el que aparecen las capas en el TOC. Es independiente del nombre que tenga la capa.
+Este atributo nos permite modificar el nombre con el que aparecen las capas en el TOC. Es independiente del nombre que tenga la capa. Por ejemplo, nos permitiría acceder a la capa a través del nombre mediante `gvsig.currentView().getLayer(name)`.
 
 Ejemplo::
 
@@ -271,7 +284,7 @@ Ejemplo de uso::
 	
 OUTPUT_FILTER
 +++++++++++++
-En algunos geoprocesos la salida de capas es múltiple y puede realizarse en diferente orden. Estos geoprocesos al ejecutarse desde la Toolbox añaden los resultados a la Vista que tenemos abierta, la diferencia entre sus capas viene dada en su nombre.
+En algunos geoprocesos la salida de capas es múltiple y puede realizarse en diferente orden la salida de estos resultados. Estos geoprocesos al ejecutarse desde la Toolbox añaden los resultados a la Vista que tenemos abierta, la diferencia entre sus capas viene dada en su nombre.
 
 Para ejecutarlo desde Scripting una opción posible es establecer un filtrado del nombre de la capa resultado que queremos.
 

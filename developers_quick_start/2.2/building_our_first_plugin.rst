@@ -671,7 +671,7 @@ En el proyecto del API encontraremos principalmente interfaces. Estos interfaces
 el API de los componentes de lógica que precisemos desarrollar. 
 EL modelo de clases del ejemplo es el que se muestra en el siguiente diagrama:
 
-.. figure:: ../data/org.gvsig.visor.api.png
+.. figure:: images/org.gvsig.visor.api.png
    :align: center
 
    Modelo de clases del API
@@ -735,7 +735,7 @@ que aparecen en el API las llamaremos igual que en el API anteponiéndole el pre
 
 El modelo de clases de la implementación para nuestro ejemplo es:
 
-.. figure:: ../data/org.gvsig.visor.impl.png
+.. figure:: images/org.gvsig.visor.impl.png
    :align: center
 
    Modelo de clases de la implementación
@@ -1257,8 +1257,8 @@ de la URL que muestra por defecto.
 
 .. tip::
 
-   Puede consultar el articulo `Crea tú propio gvSIG `_ 
-   del blog de gvSIG para leer mas sobre ello.
+   Puede consultar el articulo `Crea tu propio gvSIG`_
+   del blog de gvSIG para leer más sobre ello.
 
 Así mismo, podríamos generar una distribución personalizada de gvSIG desktop que incluyese
 una selección de los plugins *standard* junto con nuestros plugins de forma que podamos disponer 
@@ -1266,6 +1266,6 @@ de un instalable personalizado con nuestros plugins para entregar a nuestros cli
 
 View source document
 
-
+.. _Crea tu propio gvSIG: http://blog.gvsig.org/2015/09/04/crea-tu-propio-gvsig-nuevo-plugin/
 
 

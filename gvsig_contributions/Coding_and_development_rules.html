@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Coding and development rules</title>
+  </head>
+  <body>
+    <div class="section" id="mandatory-conventions">
+      <div class="section" id="forewords">
+
+        <h3>Forewords</h3>
+        <p>This document describes a list of coding conventions that are
+          required for code submissions to the project. By default, the
+          coding conventions for most Open Source Projects should follow
+          the existing coding conventions in the code that you are
+          working on. For example, if the bracket is on the same line as
+          the if statement, then you should write all your code to have
+          that convention.</p>
+        <p>If you commit code that does not follow these conventions and
+          you are caught, you are responsible for also fixing your own
+          code.</p>
+        <p>Below is a list of coding conventions that are specific to
+          gvSIG, everything else not specificially mentioned here should
+          follow the official <span class="link-external"><a
+              class="reference"
+              href="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html">Sun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              Java Coding Conventions</a></span></p>
+      </div>
+      <div class="section" id="why-code-conventions">
+        <h4>Why code conventions</h4>
+        <p>As explained in the Sun Java Coding Conventions:</p>
+        <p><em>Code conventions are important to programmers for a
+            number of reasons:</em></p>
+        <ul class="simple">
+          <li><em>80% of the lifetime cost of a piece of software goes
+              to maintenance.</em></li>
+          <li><em>Hardly any software is maintained for its whole life
+              by the original author.</em></li>
+          <li><em>Code conventions improve the readability of the
+              software, allowing engineers to understand new code more
+              quickly and thoroughly.</em></li>
+          <li><em>If you ship your source code as a product, you need to
+              make sure it is as well packaged and clean as any other
+              product you create.</em></li>
+        </ul>
+      </div>
+      <h3>gvSIG specific coding conventions</h3>
+      <h4>Mandatory conventions</h4>
+      <ol class="arabic">
+        <li>
+          <p class="first">Headers</p>
+          <p>Look at the <a class="reference"
+href="http://docs.gvsig.org/plone/projects/gvsig-desktop/docs/devel/gvsig-devel-guide/2.0.0/coding-development-guidelines/headers">Headers</a>
+            document for more information.</p>
+        </li>
+        <li>
+          <p class="first">Indentations</p>
+          <p>4 spaces. NO tabs.</p>
+        </li>
+        <li>
+          <p class="first">Javadoc</p>
+          <p>All API interfaces must be fully documented through
+            javadocs comments at interface, method and package level.</p>
+          <p>When you inherit or extend from another interface or class
+            which is already documented, and implement or rewrite one of
+            the parent methods, don't write any javadoc comments, as
+            they are also inherited since java 1.4.</p>
+        </li>
+        <li>
+          <p class="first">Brackets</p>
+          <p>All brackets should begin at the end of the line that
+            begins the statement, and end on a new line indented to the
+            beginning of the statement. Example:</p>
+          <p><strong>AVOID:</strong></p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MyClass</span>
+<span style="color: #666666">{</span>
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">someMethod</span><span style="color: #666666">()</span>
+    <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(...)</span> <span style="color: #666666">{</span> <span style="color: #408080; font-style: italic">// Do something }</span>
+<span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre>
+            </div>
+          </div>
+          <p><strong>RIGHT:</strong></p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MyClass</span> <span style="color: #666666">{</span>
+
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">someMethod</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(...)</span> <span style="color: #666666">{</span>
+          <span style="color: #408080; font-style: italic">// Do something</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre>
+            </div>
+          </div>
+          <p>Brackets are mandatory even for single line statements:</p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>expression<span style="color: #666666">)</span>       <span style="color: #408080; font-style: italic">// AVOID!</span>
+    <span style="color: #408080; font-style: italic">// some code</span>
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>expression<span style="color: #666666">)</span> <span style="color: #666666">{</span>     <span style="color: #408080; font-style: italic">// RIGHT</span>
+    <span style="color: #408080; font-style: italic">// some code</span>
+<span style="color: #666666">}</span>
+</pre>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p>Class variables should not have any prefix or suffix
+            related to its data type or scope. Example:</p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%">String nameString<span style="color: #666666">;</span>   <span style="color: #408080; font-style: italic">// AVOID!</span>
+
+String name<span style="color: #666666">;</span>         <span style="color: #408080; font-style: italic">// RIGHT</span>
+</pre>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p>Avoid lines longer than 80 characters for Code, comments,
+            ...</p>
+        </li>
+        <li>
+          <p class="first">Logging</p>
+          <p>Do not use System.out to log. Instead, use the SLF4J
+            logging API. For example:</p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> Logger LOG <span style="color: #666666">=</span> LoggerFactory<span style="color: #666666">.</span><span style="color: #7D9029">getLogger</span><span style="color: #666666">(</span>MyClass<span style="color: #666666">.</span><span style="color: #7D9029">class</span><span style="color: #666666">);</span>
+
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">someMethod</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span><span style="color: #BA2121">"some debug text"</span><span style="color: #666666">);</span>
+<span style="color: #666666">}</span>
+</pre>
+            </div>
+          </div>
+          <p>For more information on SLF4J usage, you can read the <span
+              class="reference">Logging</span> section in this document.</p>
+        </li>
+        <li>
+          <p class="first">Exception handling</p>
+          <p>Managing exceptions correctly requires experience. This is
+            not supposed to be a guide on managing exceptions, simply a
+            few best practices.</p>
+          <ul class="simple">
+            <li><em>Rule 1</em>: Try to catch exceptions as much as
+              possible and rethrow higher level exceptions (meaning
+              hiding the low level detailed and putting a message that
+              is more related to the function of your code).</li>
+            <li><em>Rule 2</em>: It is important not to loose the stack
+              trace which contains important information. Use chained
+              exceptions for that.</li>
+            <li><em>Rule 3</em>: Always log the exception at the higher
+              level (ie. where it is handled and not rethrown).</li>
+            <li><em>Rule 4</em>: Create a few<span id="result_box"
+                class="short_text" lang="en"><span class="hps"> </span></span>parent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              Exception for each API library, so methods of the API that
+              throw any exception use that parent exception or one of
+              the child ones.</li>
+            <li><em>Rule 5</em>: If you have an exception or an error
+              which can't be handled or resolved by code, throw or
+              rethrow a BaseRuntimeException subclass.</li>
+            <li><em>Rule 6</em>: At user interface level, catch all
+              exception, log it, and informto the user of error in a
+              user friend<br>
+            </li>
+          </ul>
+          <p>An example:</p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">getTestClass</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">try</span> <span style="color: #666666">{</span>
+        Class responseClass <span style="color: #666666">=</span>
+            Class<span style="color: #666666">.</span><span style="color: #7D9029">forName</span><span style="color: #666666">(</span><span style="color: #BA2121">"some.package.MyClass"</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">catch</span> <span style="color: #666666">(</span>ClassNotFoundException cnfe<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        String message <span style="color: #666666">=</span> <span style="color: #BA2121">"Cannot instantiate test class"</span><span style="color: #666666">;</span>
+        LOG<span style="color: #666666">.warn</span><span style="color: #7D9029"></span><span style="color: #666666">(</span>message<span style="color: #666666">,</span> ex<span style="color: #666666">);</span>
+        <span style="color: #008000; font-weight: bold">throw</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #0000FF">ChainedRuntimeException</span><span style="color: #666666">(</span>message<span style="color: #666666">,</span> e<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p class="first">Qualified imports</p>
+          <p>All import statements should containing the full class name
+            of classes to import and should not use the "*" notation: An
+            example:</p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #408080; font-style: italic">// AVOID!</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.*</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.net.*</span><span style="color: #666666">;</span>
+
+<span style="color: #408080; font-style: italic">// RIGHT</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.util.Date</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">java.net.HttpURLConnection</span><span style="color: #666666">;</span>
+</pre>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p class="first">Use interfaces in the declaration of methods
+            and variables.</p>
+          <p>By example, if you need a variable <em>x</em> that is a
+            list, declare it as <em>List</em> instead an <em>ArrayList</em>:</p>
+          <div class="nostx">
+            <div class="highlight" style="background: #f8f8f8">
+              <pre style="line-height: 125%"><span style="color: #408080; font-style: italic">// AVOID!</span>
+ArrayList x <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">();</span>
+HashMap y <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">();</span>
+
+<span style="color: #008000; font-weight: bold">public</span> HashMap <span style="color: #0000FF">create</span><span style="color: #666666">(</span>ArrayList keys<span style="color: #666666">,</span> ArrarList values<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">...</span>
+<span style="color: #666666">}</span>
+
+<span style="color: #408080; font-style: italic">// RIGHT</span>
+List x <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> ArrayList<span style="color: #666666">();</span>
+Map y <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> HashMap<span style="color: #666666">();</span>
+
+<span style="color: #008000; font-weight: bold">public</span> Map <span style="color: #0000FF">create</span><span style="color: #666666">(</span>List keys<span style="color: #666666">,</span> List values<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+    <span style="color: #666666">...</span>
+<span style="color: #666666">}</span>
+</pre>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p class="first">API packages</p>
+          <p>Usually, API interfaces and classes will belong to the
+            library's main root package. If you create subpackages, use
+            them to <b>group by functionality, not by type</b>.</p>
+        </li>
+        <li>
+          <p class="first">How to name packages</p>
+          <p>All packages must begin with <em>org.gvsig</em>.<br>
+            <span id="result_box" class="" lang="en"><span class="hps">Normally</span><span>,
+                the package</span> <span class="hps">is named</span> <span
+                class="hps">org.gvsig</span> <span class="hps">followed</span><span>,</span>
+              <span class="hps">a</span> <span class="hps">package name</span>
+              <span class="hps">that identifies</span> <span
+                class="hps">the logical</span> <span class="hps">or
+                functional</span> <span class="hps">block</span> <span
+                class="hps">will contain.</span></span></p>
+        </li>
+        <li><span id="result_box" class="" lang="en"><span class="hps">Uso
+
+
+
+
+
+
+
+
+              de listeners de swing.<br>
+              <br>
+              Cuando estamos creando interfaces de usuario de swing, a
+              la hora de atrapar los eventos de los componentes, se
+              usaran clases anónimas y no se enlazaran los listeners a
+              la clase en la que estén los componentes de swing. Así
+              mismo, cuando el código del evento exceda de dos o tres
+              lineas, se crearan métodos privados en la clase para
+              gestionar esa acción especifica.<br>
+              <pre style="color:#1f1c1b;background-color:#f8f8f8;"><span style="color:#898887;">// AVOID !!!!!</span>
+<b>public</b> <span style="color:#0057ae;">static</span> <b>class</b> MyPanel <b>extends</b> <b><span style="color:#0095ff;">JPanel</span></b> <b>implements</b> <b><span style="color:#0095ff;">ActionListener</span></b> {
+
+    <b>private</b> <span style="color:#0057ae;">void</span> <span style="color:#644a9b;">initComponents</span>() {
+        <b><span style="color:#0095ff;">JButton</span></b> btnOk = <b>new</b> <b><span style="color:#0095ff;">JButton</span></b>();
+        btnOk.<span style="color:#644a9b;">addActionListener</span>(<b>this</b>);
+    }
+
+    <span style="color:#644a9b;">@Override</span>
+    <b>public</b> <span style="color:#0057ae;">void</span> <span style="color:#644a9b;">actionPerformed</span>(<b><span style="color:#0095ff;">ActionEvent</span></b> e) {
+        ...
+    }
+}
+
+<span style="color:#898887;">// RIGHT</span>
+<b>public</b> <span style="color:#0057ae;">static</span> <b>class</b> MyPanel <b>extends</b> <b><span style="color:#0095ff;">JPanel</span></b> {
+
+    <b>private</b> <span style="color:#0057ae;">void</span> <span style="color:#644a9b;">initComponents</span>() {
+        <b><span style="color:#0095ff;">JButton</span></b> btnOk = <b>new</b> <b><span style="color:#0095ff;">JButton</span></b>();
+        btnOk.<span style="color:#644a9b;">addActionListener</span>(<b>new</b> <b><span style="color:#0095ff;">ActionListener</span></b>() {
+
+            <span style="color:#644a9b;">@Override</span>
+            <b>public</b> <span style="color:#0057ae;">void</span> <span style="color:#644a9b;">actionPerformed</span>(<b><span style="color:#0095ff;">ActionEvent</span></b> e) {
+                <span style="color:#644a9b;">btnOk_actionPerformed</span>();
+            }
+        });
+    }
+
+    <b>private</b> <span style="color:#0057ae;">void</span> <span style="color:#644a9b;">btnOk_actionPerformed</span>() {
+
+    }
+}
+</pre>
+            </span></span></li>
+      </ol>
+      <p><br>
+      </p>
+      <ol class="arabic">
+      </ol>
+      <h4>Nomenclatura para clases e interfaces</h4>
+      <h5>Uso de prefijos y sufijos en general</h5>
+      <p>El uso de prefijos y/o sufijos en el nombre de clases e
+        interfaces es normalmente una forma de aportar información sobre
+        su naturaleza y/o cometido. Por ejemplo se pueden utilizar para
+        denotar un patrón o un rol dentro de un patrón (por ejemplo el
+        sufijo Factory). En otras ocasiones, se hace necesario su uso
+        porque el nombre adecuado ya está asignado. Este es el caso de
+        los prefijos y sufijos que se caracterizan a continuación.</p>
+      <p>Como regla general:</p>
+      <ul class="simple">
+        <li>Sólo se utilizará un prefijo o sufijo cuando no se pueda
+          utilizar el nombre simple (normalmente porque ya esté siendo
+          usado por otra clase o interfaz).</li>
+      </ul>
+      <h5>Uso del prefijo "Abstract"</h5>
+      <ul class="simple">
+        <li>Sólo debe usarse en clases, <strong>no en interfaces</strong>.</li>
+        <li>La clase debe ser abstracta e implementar un interface.</li>
+        <li>Sólo se utilizara cuando la interfaz que implementa tenga el
+          mismo nombre.</li>
+      </ul>
+      <p>Ejemplo:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre class="literal-block">public interface List {}
+public abstract class AbstractList extends AbstractCollection implements List {}
+</pre>
+      </div>
+      <h5>Uso del prefijo <em>"I"</em></h5>
+      <ul>
+        <li>
+          <p class="first">Se recomienda <strong>no utilizar</strong>.</p>
+          <p>Normalmente, las interfaces son la parte visible del modelo
+            de un componente. Suelen representar a las entidades y
+            conceptos propios del negocio o dominio y por tanto se
+            recomienda mantener los nombres tal cual se utilizan en el
+            negocio.</p>
+        </li>
+      </ul>
+      <h5>Uso del prefijo <em>"Default"</em></h5>
+      <ul class="simple">
+        <li>No puede ser una clase abstracta.</li>
+        <li>Es una implementación por defecto de una interfaz o una
+          clase abstracta.</li>
+        <li>La implementación que aporta debe ser suficiente, pero no
+          necesariamente completa.</li>
+        <li>Pueden existir implementaciones alternativas a esta clase.</li>
+      </ul>
+      <p>Ejemplo:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre class="literal-block">public interface ListModel {}
+public abstract class AbstractListModel implements ListModel, Serializable {}
+public class DefaultListModel extends AbstractListModel {}
+</pre>
+      </div>
+      <h5>Uso del prefijo <em>"Base"</em></h5>
+      <ul class="simple">
+        <li>No es una clase abstracta.</li>
+        <li>Proporciona una implementación "base" de un interface o una
+          clase abstracta.</li>
+        <li>La clase puede ser instanciada para ser usada sin más, pero
+          está pensada para que el usuario del componente la extienda.</li>
+        <li>Si no tiene un interface o clase abstracta como padre, no
+          debe usarse este prefijo.</li>
+      </ul>
+      <p>Ejemplo:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre class="literal-block">public abstract class StreamRequestHandler {}
+public class BaseHTTPRequestHandler extends StreamRequestHandler {}
+</pre>
+      </div>
+      <h5>Uso del sufijo <em>"Impl"</em></h5>
+      <ul class="simple">
+        <li>Es una clase instanciable, y por tanto no puede ser
+          abstracta</li>
+        <li>Es una implementación completa de un interface o clase
+          abstracta, que generalmente se llama igual que la clase sin el
+          "impl".</li>
+        <li>No se debe extender otras clases a partir de ella.</li>
+        <li>Si el nombre de la clase no entra en conflicto con el nombre
+          del interface o clase abstracta a implementar, no se usará
+          este sufijo.</li>
+        <li>Si se trata de la implementación por defecto de una parte
+          del API y no entra en conflicto con otras partes del proyecto
+          se prefiere el uso del prefijo <em>Default</em>.</li>
+      </ul>
+      <p>Ejemplo:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre class="literal-block">public interface Plane {}
+public abstract class AbstractPlane implements Plane {}
+
+// Ambos son correctos (pero no iguales)
+public class PlaneImpl implements Plane {}
+public class PlaneImpl extends AbstractPlane {}
+</pre>
+      </div>
+      <h5>Condiciones de aplicación</h5>
+      <p>Este criterio se aplicará en los desarrollos que se realicen
+        bajo el ambito de la Asociacion gvSIG o derivado de contratos
+        realizados por esta.</p>
+      <h4>Nombres de paquetes a usar en gvSIG</h4>
+      <h5>Consideraciones previas</h5>
+      <p>Debido a la dispersión y falta de unidad en los nombres de
+        paquetes que se han venido utilizando en gvSIG 1.X, se decidio
+        uniformizarlos, dando una identidad de proyecto por encima del
+        de la empresa que realiza el desarrollo.</p>
+      <h5>Criterio a seguir</h5>
+      <p>A la hora de crear paquetes java que deban formar parte de una
+        distribución oficial de gvSIG o vayan a llevar el respaldo
+        oficial del proyecto gvSIG, estos colgarán del paquete:</p>
+      <pre class="literal-block">org.gvsig
+</pre>
+      <p>No haciendo mención en el paquete a la empresa que realiza el
+        desarrollo.</p>
+      <p>Normalmente, el paquete se nombrará <em>org.gvsig</em>
+        seguido, de un nombre de paquete que identifique el bloque
+        lógico o funcional que va a contener.</p>
+      <h5>Condiciones de aplicación</h5>
+      <p>Este criterio se aplicará en los desarrollos que se realicen
+        bajo el ambito de la Asociacion gvSIG o derivado de contratos
+        realizados por esta.</p>
+      <h4>Logging</h4>
+      <p>En gvSIG se emplea la librería SLF4J como API de logging a
+        emplear.</p>
+      <p><span class="link-external"><a class="reference"
+            href="http://www.slf4j.org/">SLF4J</a></span> Simple Logging
+        Facade o <em>"Fachada de Registro Simple"</em> es un framework
+        que se ha creado para abstraer el sistema de registro que hay
+        por debajo. Como el sistema de registro más popular usado es
+        Log4j, el API del framework es muy similar para simplificar al
+        máximo eliminar la dependencia directa de este sistema. Este
+        framework por tanto es una capa de abstracción del sistema de
+        registro, y nos va a permitir cambiar el componente de registro
+        que lleve por debajo sin necesidad de un gran esfuerzo de
+        recodificación de la aplicación.</p>
+      <h5>Características de SLF4J</h5>
+      <ul class="simple">
+        <li><strong>SLF4J</strong> es una capa de abstracción
+          independiente cualquier sistema de registro <em>"logging"</em>
+          concreto.</li>
+        <li>Permite al usuario final acoplar la implementación deseada
+          en tiempo de despliegue.</li>
+        <li>Permite una migración gradual a partir de Jakarta Commons
+          Logging ( <strong>JCL</strong> ), ya que dispone de un
+          wrapper del API de JCL sobre su propio API.</li>
+        <li>Dispone de un sistema de registro parametrizado que reduce
+          el <em>overhead</em> de evaluar los strings de los mensajes,
+          sobre todo cuando no están habilitados los mensajes de debug.</li>
+      </ul>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%"><span style="color: #408080; font-style: italic">// Those lines produce the same results. The second one has parameters that reduce the overhead when debuggin is disabled</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span><span style="color: #BA2121">"The new entry is "</span><span style="color: #666666">+</span>entry<span style="color: #666666">+</span><span style="color: #BA2121">"."</span><span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span><span style="color: #BA2121">"The new entry is {}."</span><span style="color: #666666">,</span> entry<span style="color: #666666">);</span>
+</pre>
+      </div>
+      <ul class="simple">
+        <li>Dispone de soporte para Mapped Diagnostic Context ( <strong>MDC</strong>
+          ), si el sistema de registro que funciona bajo SLF4J lo
+          soporta. Por el momento sólo lo hacen <strong>Log4j</strong>
+          y <strong>logback</strong> .</li>
+        <li>Los sistemas de logging pueden escoger entre implementar el
+          interfaz de SLF4J directamente como <strong>logback</strong>
+          y <strong>SimpleLogger</strong> ó escribir adpatadores SLF4J
+          para una implementación dada como en los casos de <strong>Log4jLoggerAdapter</strong>
+          y <strong>JDK14LoggerAdapter</strong> .</li>
+        <li>No delega en un sistema de carga de clases específico (class
+          loader) para delegar en un sistema de registro específico, es
+          decir, se configura estáticamente en tiempo de compilación,
+          sólo se permite usar uno y sólo un sistema de registro <em>logging</em>
+          . Simplemente se añade al CLASSPATH el jar del API del sistema
+          de <em>logging</em> junto con <em>slf4j-api.jar</em>. Esto
+          evita los problemas de carga de clases y pérdidas de memoria
+          sufridos por Jakarta <strong>JCL</strong> .</li>
+        <li><strong>SLF4J</strong> tiene también una interfaz muy
+          próxima a <strong>JCL</strong> y <strong>Log4j</strong> API
+          actualmente en uso, por tanto el esfuerzo de implementación se
+          reduce significativamente.</li>
+        <li><strong>gvSIG</strong> continúa utilizando el mismo toolkit
+          de logging ( <strong>Log4j</strong> ) por tanto,
+          prácticamente no existen cambios en tiempo de ejecución.</li>
+        <li>Se gana en flexibilidad, robustez y eficiencia, mediante la
+          posibilidad de cambiar el componente de logging, ya sea para
+          todas las versiones de gvSIG o alternativamente para versiones
+          concretas sin modificar el código fuente de <strong>gvSIG</strong>.</li>
+        <li>Es el standard que se ha recogido en los proyectos <span
+            class="link-external"><a class="reference"
+              href="http://www.osgi.org/Main/HomePage">OSGI</a></span> ,
+          debido a que puede adaptar proyectos que ya usan
+          commons-logging con facilidad, debido a la popularidad
+          adquirida de este framework estudiado anteriormente.</li>
+      </ul>
+      <h5>Cómo usar SLF4J en gvSIG</h5>
+      <p>gvSIG 2.0 ya está preparado para trabajar con SLF4J, usando
+        LOG4J como implementación, por lo que podemos usarlo
+        directamente desde cualquier extensión de gvSIG.</p>
+      <p>Para usar SLF4J desde una clase Java basta con incluir las
+        siguientes sentencias:</p>
+      <p>1.- Importar las clases necesarias</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">org.slf4j.Logger</span><span style="color: #666666">;</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">org.slf4j.LoggerFactory</span><span style="color: #666666">;</span>
+</pre>
+      </div>
+      <p>2.- Declaramos e inicializamos el <em>Logger</em>.</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MyClass</span>
+<span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">private</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #008000; font-weight: bold">final</span> Logger LOG <span style="color: #666666">=</span> LoggerFactory<span style="color: #666666">.</span><span style="color: #7D9029">getLogger</span><span style="color: #666666">(</span>MyClass<span style="color: #666666">.</span><span style="color: #7D9029">class</span><span style="color: #666666">);</span>
+    <span style="color: #666666">...</span>
+</pre>
+      </div>
+      <p>3.- Usamos el <em>Logger</em> dentro del código de la clase,
+        cuando queramos mostrar un mensaje de log, dependiendo del tipo:
+        error, alerta, información, depuración o traza:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%">LOG<span style="color: #666666">.</span><span style="color: #7D9029">warn</span><span style="color: #666666">(</span>String message<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">warn</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">warn</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object<span style="color: #666666">[]</span> arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">warn</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span> Throwable arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">info</span><span style="color: #666666">(</span>String message<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">info</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">info</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object<span style="color: #666666">[]</span> arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">info</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span> Throwable arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">error</span><span style="color: #666666">(</span>String message<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">error</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">error</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object<span style="color: #666666">[]</span> arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">error</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span> Throwable arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span>String message<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object<span style="color: #666666">[]</span> arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span> Throwable arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">trace</span><span style="color: #666666">(</span>String message<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">trace</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">trace</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span>Object<span style="color: #666666">[]</span> arg1<span style="color: #666666">);</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">trace</span><span style="color: #666666">(</span>String message<span style="color: #666666">,</span> Throwable arg1<span style="color: #666666">);</span>
+</pre>
+      </div>
+      <p>Los siguientes métodos se proporcionan para consultar la
+        activación de los mensajes por nivel:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%">LOG<span style="color: #666666">.</span><span style="color: #7D9029">isErrorEnabled</span><span style="color: #666666">();</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">isWarnEnabled</span><span style="color: #666666">();</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">isInfoEnabled</span><span style="color: #666666">();</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">isDebugEnabled</span><span style="color: #666666">();</span>
+LOG<span style="color: #666666">.</span><span style="color: #7D9029">isTraceEnabled</span><span style="color: #666666">();</span>
+</pre>
+      </div>
+      <p>En <strong>SLF4J</strong> tenemos la capacidad adicional de
+        parametrizar los mensajes, insertando variables dentro de la
+        cadena String del mensaje de registro, como en el siguiente
+        ejemplo:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> Integer temperature<span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setTemperature</span><span style="color: #666666">(</span>Integer temperature<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+    LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span><span style="color: #BA2121">"Setting temperature to {}. Old temperature was {}."</span><span style="color: #666666">,</span> temperature<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">temperature</span><span style="color: #666666">);</span>
+
+    <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">temperature</span> <span style="color: #666666">=</span> temperature<span style="color: #666666">;</span>
+
+    <span style="color: #008000; font-weight: bold">if</span><span style="color: #666666">(</span>temperature<span style="color: #666666">.</span><span style="color: #7D9029">intValue</span><span style="color: #666666">()</span> <span style="color: #666666">&gt;</span> <span style="color: #666666">50)</span> <span style="color: #666666">{</span>
+      LOG<span style="color: #666666">.</span><span style="color: #7D9029">info</span><span style="color: #666666">(</span><span style="color: #BA2121">"Temperature has risen above 50 degrees."</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre>
+      </div>
+      <p>Esto evita que tengamos que ir concatenando Strings, lo cuál
+        reduce el coste del uso de las instrucciones de logging. Esto es
+        debido a que, aunque el nivel de log que estemos usando esté
+        desactivado (por ejemplo, el de debug), la invocación al método
+        se hará de todas formas, incluyendo la concatenación de Strings
+        para construir el mensaje, si la hubiera.</p>
+      <p>De todas formas, si la obtención de alguno de los parámetros
+        que vamos a pasar al mensaje de log fuera costosa, es
+        conveniente emplear los métodos de consulta para evitar dicha
+        ejecución. Por ejemplo:</p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">private</span> Integer temperature<span style="color: #666666">;</span>
+
+<span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">setTemperature</span><span style="color: #666666">(</span>Integer temperature<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+
+    LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span><span style="color: #BA2121">"Setting temperature to {}. Old temperature was {}."</span><span style="color: #666666">,</span> temperature<span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">temperature</span><span style="color: #666666">);</span>
+
+    <span style="color: #008000; font-weight: bold">this</span><span style="color: #666666">.</span><span style="color: #7D9029">temperature</span> <span style="color: #666666">=</span> temperature<span style="color: #666666">;</span>
+    addToTemperatureLog<span style="color: #666666">(</span>temperature<span style="color: #666666">);</span>
+
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>LOG<span style="color: #666666">.</span><span style="color: #7D9029">isDebugEnabled</span><span style="color: #666666">())</span> <span style="color: #666666">{</span>
+        LOG<span style="color: #666666">.</span><span style="color: #7D9029">debug</span><span style="color: #666666">(</span><span style="color: #BA2121">"The current average temperature is {} Celsius"</span><span style="color: #666666">,</span> calculateAverageTemperature<span style="color: #666666">());</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre>
+      </div>
+      <br>
+      <h4>Interfaces de usuarios</h4>
+      <h5>Consideraciones generales</h5>
+      <ol>
+        <li>Las herramientas deben denominarse con la misma cadena en
+          cualquier lugar donde aparezcan, tanto en la barra de
+          herramientas como en la barra de menús, etc. Además de dar
+          soporte para ser traducida.</li>
+        <li>Cada herramienta se debe identificar siempre con el mismo
+          icono. No es posible que tenga un icono en el menú y otro
+          distinto en la barra de herramientas, por ejemplo.</li>
+        <li>Las ventanas deben incluir siempre un título, el cuál debe
+          ser conciso y con soporte para ser traducido.</li>
+      </ol>
+      <h5>Cadenas de texto.</h5>
+      <ol>
+        <li>Evitar el uso de abreviaturas cuando no existan problemas de
+          espacio.</li>
+        <li>Evitar textos muy largos que den información redundante,
+          facilitando la reutilización de claves de traducción. Ejemplo:
+          “Seleccione el tamaño que desea:” por “Tamaño”. <br>
+        </li>
+        <li>Se debe consultar en "i18n/translations.all" en la
+          instalación de gvSIG las traducciones ya existentes en gvSIG
+          para comprobar si ya existe una cadena igual a la que queremos
+          presentar y deberíamos reutilizar su clave. En este caso,
+          deberemos seguir incluyendo en los properties de nuestro
+          proyecto dicha entrada con la misma traducción en castellano e
+          inglés a la que hay en "i18n/translations.all".<br>
+        </li>
+        <li>Todos los textos de una ventana deben estar traducidos al
+          castellano y al inglés como mínimo, evitando que aparezcan
+          claves de traducción en vez del texto traducido, o que
+          aparezcan textos en inglés en la interfaz en castellano.</li>
+        <li>Prestar atención a fallos ortográficos, sobretodo en los
+          acentos a la hora de crear las traducciones.<br>
+        </li>
+        <li>En cualquier referencia a los documentos de gvSIG, como por
+          ejemplo “Vista”, la primera letra debe ir en mayúsculas.<br>
+        </li>
+        <li>Hay que seguir siempre la misma pauta en las mayúsculas y
+          minúsculas cuando se presenta el caso de un desplegable con
+          distintos elementos. Siempre deben empezar todos por el mismo
+          tipo de letra.</li>
+        <li>Usaremos "inglés" en la claves de traduccion. No las
+          abreviaremos reflajando el mismo texto en la clave que en la
+          traduccion al inglés. Reflejaran el texto que debe aparecer en
+          la traduccion usando "_" en lugar de espacios en blanco.</li>
+        <li>Todas las claves de traduccion que se creen nuevas deberan
+          comenzar por "_".<br>
+        </li>
+        <li>Cuando una cadena de traduccion precise parametros, en la
+          clave se introduciran estos en la forma "XnumeroX" en el sitio
+          correspondiente donde "numero" empieza en cero e identificara
+          al parametro. En la traduccion, se sustituira "XnumeroX" por
+          "{numero}" en el sitio que corresponda.<br>
+        </li>
+        <li>Cuando en una cadena de traduccion aparezcan caracteres de
+          puntuacion usar las siguientes reglas para la clave de
+          traduccion:</li>
+      </ol>
+      <blockquote>
+        <blockquote>
+          <table border="0" cellpadding="2" cellspacing="2">
+            <tbody>
+              <tr>
+                <td valign="top">XcolonX<br>
+                </td>
+                <td valign="top">":"<br>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">XsemicolonX<br>
+                </td>
+                <td valign="top">";"<br>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">XdotX<br>
+                </td>
+                <td valign="top">"."<br>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">XnlX<br>
+                </td>
+                <td valign="top">"\n"<br>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">XellipsisX<br>
+                </td>
+                <td valign="top">"..."<br>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">XquestionX<br>
+                </td>
+                <td valign="top">"?"<br>
+                </td>
+              </tr>
+              <tr>
+                <td valign="top">XexclamationX</td>
+                <td valign="top">"!"<br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </blockquote>
+      </blockquote>
+      <h5>Dimensiones de cuadros de dialogo y paneles en general</h5>
+      <ol>
+        <li>Los componentes de los paneles deberan ajustarse al tamaño
+          del panel, presentando este un tamaño por defecto adecuado
+          para mostrar los elementos que contiene.<br>
+        </li>
+        <li>Evitar que aparezcan textos cortados e ilegibles obligando a
+          que el usuario tenga que volver a dimensionar la ventana cada
+          vez que acceda a ella. Hay que tener en cuenta que otras
+          traducciones pueden ocupar mas que el texto en castellano o
+          inglés.<br>
+        </li>
+        <li>Prestar atención a los espacios sobrantes en las ventanas,
+          sobretodo en la parte inferior.</li>
+        <li>Intentar homogeneizar una ventana que incluya varios
+          paneles, de manera que no existan espacios sobrantes
+          exagerados.</li>
+        <li>Dejar márgenes de 5 píxeles entre paneles interiores y con
+          los bordes de la ventana.</li>
+      </ol>
+      <h5>Formularios</h5>
+      <ol>
+        <li>Organizar los campos de un formulario en una sola columna de
+          datos.</li>
+        <li>Todas las opciones usadas para un grupo de componentes
+          JRadioButton deben ser excluyentes. </li>
+        <li>Los textos de los elementos JLabel que precedan a un
+          JTextField, JComboBox, etc. en un formulario deben terminar
+          con los dos puntos “:”.</li>
+        <li>Cuando un componente con texto se encuentra en estado
+          enabled=false, el texto debe aparecer en gris.</li>
+        <li>La separación entre un componente JLabel y el componente de
+          su derecha no debe ser inferior a 5 píxeles de manera que sea
+          legible el texto. Además el tamaño máximo de separación no
+          debe ser generalmente, mayor que el tamaño del propio texto
+          del componente JLabel.</li>
+        <li>&nbsp;No se deben incluir botones sin funcionalidad. </li>
+        <li>&nbsp;El texto de los botones que aparecen en varias
+          ventanas debe ser el mismo siempre. Por ejemplo, el botón con
+          texto “Aceptar” a veces aparece con el texto “Ok”, cuando
+          siempre debe poner “Aceptar”.</li>
+        <li>&nbsp;Los botones de Aplicar/Aceptar/Cancelar deben aparecer
+          siempre en este orden y en la esquina inferior derecha de la
+          ventana (en la misma alineación horizontal).</li>
+      </ol>
+      <h5>Creación de interfaces de usuario</h5>
+      <p>A la hora de crear interfaces de usuario, siempre que sea
+        posible, se utilizará la herramienta <a
+          href="http://devel.gvsig.org/download/runtimes/abeille/"><i>abeille</i></a>.
+        Esta herramienta es adecuada para la creación de interfaces de
+        usuario de tipo formulario. Si el interface de usuario a crear
+        no es un formulario, no es preciso usar esta herramienta.<br>
+      </p>
+      <p>[ <a href="http://devel.gvsig.org/download/runtimes/abeille/">http://devel.gvsig.org/download/runtimes/abeille/</a>
+        ]<br>
+      </p>
+      <p>A la hora de crear los interfaces de usuario estos se guardarán
+        en formato xml junto a los ficheros fuente del proyecto. Además
+        se generará código java asociado al interface de usuario usando
+        el sufijo "View" para nombrar la clase java a generar. Estos <b>ficheros
+
+
+
+
+
+
+
+
+
+
+
+          java generados nunca deberán ser editados</b>. Para cada panel
+        se crearán dos o tres clases java. Vamos a ver esto con un
+        ejemplo. Supongamos que estamos creando el panel "general"&nbsp;
+        de propiedades de una capa. Tendremos:<br>
+      </p>
+      <ul>
+        <li>GeneralLayerPropertiesView, generado a partir del abeille.
+          Básicamente contiene los componentes basicos y su disposición
+          y dimensiones.</li>
+        <li>GeneralLayerPropertiesControler, extiende a
+          GeneralLayerPropertiesView, y aporta los métodos necesarios
+          para asegurar el comportamiento de los componentes, además de
+          la inclusión de imágenes y gestión de traducciones de estos.</li>
+        <li>GeneralLayerPropertiesModel, que contendrá el modelo
+          asociado al componente. Es posible que muchas veces no sea
+          necesario crear este componente ya que muchas veces existirá
+          ya en las librerias de la lógica el componente al que se
+          corresponde el interface de usuario que estamos creando. Por
+          ejemplo, en este caso, el modelo asociado a nuestro panel
+          sería un VectorialLayer de gvSIG.</li>
+      </ul>
+      <p>A la hora de crear el interface de usuario deberemos de tener
+        en cuenta:<br>
+      </p>
+      <ul>
+        <li>Deberemos dar nombre a todos los componentes que aparezcan
+          en nuestro interface de usuario.</li>
+        <li>Prefijaremos el nombre de los componentes siguiendo el
+          siguiente criterio:</li>
+        <ul>
+          <li>JLabel, lbl</li>
+          <li>JTextField, txt</li>
+          <li>JTextArea, txt</li>
+          <li>JEditorPane, txt</li>
+          <li>JComboBox, cbo</li>
+          <li>JButton, btn</li>
+          <li>JList, lst</li>
+          <li>JTree, tree<br>
+          </li>
+        </ul>
+        <li>Cuando precisemos incrustar un componente que no este
+          directamente soportado por la herramienta, insertaremos un
+          JPanel dándole un nombre con el sufijo "Container".</li>
+        <li>Dejaremos un espacio de separación (una celda) entre los
+          distintos componentes y entre estos y los bordes del panel.</li>
+        <li>Cuando debamos introducir un selector de fichero,
+          introduciremos una caja de texto y a su derecha, sin espacio
+          de separación un botón.</li>
+        <li>Los paneles que realicemos no deberán contener botones de
+          Aplicar/Aceptar/Cancelar para facilitar su reutilización. Se
+          utilizarán las utilidades del WindowManager de ToolsSwing para
+          presentar ventanas y cuadros de diálogo.</li>
+      </ul>
+      <p>A la hora de crear la clase "controller", tendremos en cuenta:</p>
+      <ul>
+        <li>Se recomienda que nuestro panel implemente el interface
+          "Component" de ToolsSwing.<br>
+        </li>
+        <li>Se recomienda la existencia de un metodo "initComponents"
+          invocado en el contructor y en el que se inicializarán todos
+          los componentes, añadiendo los "listeners" que precisemos y
+          traduciendo los elementos que sea necesario.</li>
+        <li>Los paneles no deberán depender del estado de otros paneles,
+          ventanas o herramientas de gvSIG. Si es preciso recibirían en
+          su constructor la informacion pertinente para su
+          funcionamiento.</li>
+        <li>Se evitará la codificación de acciones en clases anónimas
+          asociadas a los listeners de los componentes, creándose
+          métodos en la clase controller a los que se invocará desde las
+          clases anónimas para que realicen las acciones pertinentes.</li>
+        <li>La clase controller no implementará ActionListener y no se
+          redirijirán a ella todos los eventos de los componentes.</li>
+        <li>Usa el I18nManager para traducir las cadenas de texto que
+          aparezcan en el interface de usuario. No guardes una instancia
+          de él en la clase, créala local al método initComponents.</li>
+        <li>Cuando haya que incluir imágenes en los diálogos usa el
+          "Tema de iconos" para acceder a ellas.<br>
+        </li>
+      </ul>
+      <p>Estas consideraciones estan relacionadas con la implementación
+        de paneles y cuadros de diálogo. Normalmente estos llevaran
+        asociada en el API un interface definiendo el API del panel, que
+        deberá estar implememtado con la clase "controller". Desde fuera
+        de la implementación no se deberá acceder nunca a los
+        componentes del interface de usuario, debiendo existir métodos
+        para asignar los valores de entrada del formulario y recoger los
+        de salida. Si estos métodos se limitan a hacer get y set sobre
+        los componentes del formulario, revisa el análisis, es fácil que
+        hayas trasladado al cliente del panel responsabilidades del
+        "controller".<br>
+      </p>
+      <h4>Acceso al documento vista activo</h4>
+      <p>Siempre que precisemos acceder al documento vista y no al
+        interface gráfico, en <br>
+        lugar de recuperar el documento a partir de la ventana activa,
+        usaremos el método<br>
+        <i>getActiveDocument</i> del <i>ApplicationManager.</i>
+        Haríamos algo como:<br>
+      </p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre>  ApplicationManager application = ApplicationLocator.getManager();
+  ViewDocument doc = (ViewDocument) application.getActiveDocument(ViewManager.TYPENAME);
+  if( doc == null ) {
+      return false;
+  }
+  MapContext  mapContext = doc.getMapContext();
+</pre>
+      </div>
+      <p>Asi mismo, si una vez recuperado el documento vista debemos
+        determinar si contiene capas vectoriales, o contiene capas
+        vectoriales activas usaremos los metodos del MapContext:<br>
+      </p>
+      <ul>
+        <li><i>hasVectorLayers</i><i> </i><br>
+        </li>
+        <li> <i>hasActiveVectorLayers</i></li>
+      </ul>
+      <p>Por ejemplo:<br>
+      </p>
+      <div class="highlight" style="background: #f8f8f8">
+        <pre>
+  return mapContext.hasActiveVectorLayers();
+</pre>
+      </div>
+      Resumiendo, siempre que sea posible:<br>
+      <ul>
+        <li>No accedamos al interface de usuario si solo precisamos
+          objetos de la lógica (<i>getActiveDocument</i> vs <i>getActiveWindow</i>).</li>
+        <li>Utilicemos los métodos <i>"has...()"</i> del <i>MapContext</i>
+          en lugar de recorrernos las capas.<br>
+        </li>
+      </ul>
+      <p> </p>
+      <p><br>
+        <br>
+      </p>
+    </div>
+  </body>
+</html>

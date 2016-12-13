@@ -310,7 +310,7 @@ Las librerías que más pueden cubrir nuestras necesidades en gvSIG serían:
     Aunque redactadas para gvSIG 2.0.0, existe documentación sobre las librería s
     de acceso a datos y de geometrias que puede ser interesante de leer ya que casi en su 
     totalidad puede aplicarse a gvSIG 2.2.0. Puede encontrarlas  aqui la de 
-    `DAL `_ y aqui la de `geometrias `_.
+    `DAL`_ y aqui la de `geometrias`_.
 
 - **org.gvsig.projection**. Es la librería de manejo de sistemas
   de referencias coordenados de gvSIG.
@@ -339,6 +339,8 @@ Las librerías que más pueden cubrir nuestras necesidades en gvSIG serían:
   serie de componentes gráficos de utilidad general.
   
   
-
+.. _DAL: http://docs.gvsig.org/plone/projects/gvsig-desktop/docs/devel/org.gvsig.fmap.dal/2.0.0
+  
+.. _geometrias: http://docs.gvsig.org/plone/projects/gvsig-desktop/docs/devel/org.gvsig.fmap.geom/2.0.0
 
 
