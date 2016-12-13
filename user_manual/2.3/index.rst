@@ -1,6 +1,6 @@
 
 Manual de usuario 2.3 (ES)
 ==========================
+This is a paragraph that contains `a link`_.
 
-.. raw:: html
-   :file: manual/gvsig23.htm
+.. _a link: manual/gvsig23.htm
