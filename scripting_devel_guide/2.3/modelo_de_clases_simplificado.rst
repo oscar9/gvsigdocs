@@ -1,6 +1,8 @@
 Modelo de clases simplificado
 =============================
 
+
+
 .. |m1| image:: images/modelo_1plugins.png
 .. |m2| image:: images/modelo_2acciones.png
 .. |m3| image:: images/modelo_3proyectodocumento.png
@@ -17,7 +19,7 @@ Plugins
    
 .. raw:: html
 
-    <img style="max-width: none" src="../../../_images/modelo_1plugins.png" alt="" usemap="#modelo_1plugins" />
+    <img style="max-width: none" src="../../_images/modelo_1plugins.png" alt="" usemap="#modelo_1plugins" />
     <map name="modelo_1plugins" id="modelo_1plugins">
     <area alt="" title="" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/andami/PluginsLocator.html" shape="poly" coords="49,42,145,44,144,64,50,66" />
     <area alt="" title="" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/andami/PluginsManager.html" shape="poly" coords="195,90,302,90,302,112,194,113" />
