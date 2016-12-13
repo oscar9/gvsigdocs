@@ -23,7 +23,6 @@ gvSIG 2.3
    
 * `Documentación de Scripting`_
 * `Manual de usuario 2.3`_
-* :download:`Manual de usuario 2.3 (PDF) <user_manual/2.3/manual/gvsig-2.3.0-doc-1.0.0-es.pdf>`
 * `Cómo contribuir en gvSIG`_
 * `Guia de inicio rápido para desarrolladores 2.3`_
 
