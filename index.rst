@@ -12,8 +12,8 @@ Documentación de gvSIG (ES)
    :glob:
 
    scripting_devel_guide/2.3/index.rst
-   user_manual/2.2/index.rst
-   user_manual/2.3/index.rst
+   user_manual/2.2/index.html
+   user_manual/2.3/index.html
    developers_quick_start/2.2/index.rst
    developers_quick_start/2.3/index.rst
    org.gvsig.fmap.dal/2.2/index.rst
