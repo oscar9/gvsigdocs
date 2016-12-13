@@ -34,7 +34,6 @@ sys.path.append(os.path.abspath('_ext'))
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosectionlabel',
     'javadoc'
 ]
 
