@@ -3,6 +3,7 @@ gvSIG 2.3.1. Guía de inicio rápido para el desarrollador
 ========================================================
 
 .. toctree::
+    :maxdepth: 2
     :numbered:
 
     01_introduction.rst
