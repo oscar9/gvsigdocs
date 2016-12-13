@@ -42,9 +42,6 @@ javadoc = {'javadoc': ('http://downloads.gvsig.org/download/gvsig-desktop-testin
 templates_path = ['_templates']
 
 
-locale_dirs = ['locale/']
-gettext_compact = False
-
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
@@ -77,7 +74,9 @@ release = u'0'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'es'
+locale_dirs = ['locale/']  
+gettext_compact = False
+language = ['es','en']
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
