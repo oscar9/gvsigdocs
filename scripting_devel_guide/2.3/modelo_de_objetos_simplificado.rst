@@ -10,7 +10,7 @@ Aquí podemos ver un esquema con los componentes de uso más común desde script
 
 .. raw:: html
 
-    <img class="mapping" style="max-width: none" src="../../../_images/modelo_de_objetos_simplificado.png" usemap="#map" height="1143" width="1022" border="0">
+    <img class="mapping" style="max-width: none" src="../../_images/modelo_de_objetos_simplificado.png" usemap="#map" height="1143" width="1022" border="0">
     <map name="map">
       <!-- #$-:Image map file created by GIMP Image Map plug-in -->
       <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
